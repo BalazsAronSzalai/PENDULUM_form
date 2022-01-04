@@ -24,7 +24,7 @@ namespace WFA1220
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            FillDGV();
+            //FillDGV();
             FillCB();
         }
 
@@ -49,9 +49,57 @@ namespace WFA1220
             }
         }
 
-        private void FillDGV()
+        /*private void FillDGV()
         {
-            
+            dgv.Rows.Clear();
+
+            using (var c = new SqlConnection(ConnectionString))
+            {
+                c.Open();
+
+                string whereArtist = cbArtist.SelectedIndex == -1
+                    ? "" : $"AND artist = '{cbArtist.Text}'";
+
+                var r = new SqlCommand(
+                    "SELECT id, artist, title, relase" +
+                    "FROM Albums" +
+                    "INNER JOIN tracks ON id = albums.id" +
+                    $"WHERE (artist LIKE '{tbKereses.Text}')" +
+                    whereArtist +
+                    "ORDER BY artist;", c).ExecuteReader();
+
+                while (r.Read())
+                {
+                    dgv.Rows.Add(r[0], r[1], r[2], r[3]);
+                }
+            }
+        }*/
+
+        private void tbKereses_TextChanged(object sender, EventArgs e)
+        {
+            //FillDGV();
+        }
+
+        private void cbArtist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //FillDGV();
+        }
+
+        private void cbAlbum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //FillDGV();
+        }
+
+        private void btnAddDisc_Click(object sender, EventArgs e)
+        {
+            var FrmAddDisc = new FrmAddDisc();
+            FrmAddDisc.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            var FrmEdit = new FrmEdit();
+            FrmEdit.Show();
         }
     }
 }
