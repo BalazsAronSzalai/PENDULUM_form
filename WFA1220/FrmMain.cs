@@ -91,15 +91,14 @@ namespace WFA1220
         }
 
         private void btnAddDisc_Click(object sender, EventArgs e)
-        {
-            var FrmAddDisc = new FrmAddDisc();
-            FrmAddDisc.Show();
+        { 
+            //=> new FrmAddDisc(ConnectionString).ShowDialog();
         }
+        
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var FrmEdit = new FrmEdit();
-            FrmEdit.Show();
+            //=> new FrmEdit(ConnectionString).ShowDialog();
         }
     }
 }
